@@ -1,17 +1,32 @@
 [
   {
+    "Id": 4,
+    "Text": "vin skal ilte",
+    "IsDone": true,
+    "Priority": "High"
+  },
+  {
+    "Id": 5,
+    "Text": "add bliver tastbar",
+    "IsDone": true,
+    "Priority": "High"
+  },
+  {
     "Id": 1,
     "Text": "Sk\u00E6r gr\u00F8ntsager",
-    "IsDone": true
+    "IsDone": true,
+    "Priority": "Medium"
   },
   {
     "Id": 2,
     "Text": "Kog kartoffler",
-    "IsDone": true
+    "IsDone": true,
+    "Priority": "Medium"
   },
   {
     "Id": 3,
     "Text": "mariner culottestegen",
-    "IsDone": false
+    "IsDone": false,
+    "Priority": "Medium"
   }
 ]
