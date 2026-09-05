@@ -13,31 +13,22 @@
         </Grid.RowDefinitions>
 
         <DockPanel Grid.Row="0">
-            <Button DockPanel.Dock="Right" Width="80" Margin="8,0,0,0" Command="{Binding AddTaskCommand}">Add</Button>
-            <ComboBox DockPanel.Dock="Right" Width="90" Margin="8,0,0,0"
-                      ItemsSource="{Binding Priorities}" SelectedItem="{Binding NewTaskPriority}" />
-            <TextBox VerticalContentAlignment="Center" Text="{Binding NewTaskText, UpdateSourceTrigger=PropertyChanged}">
-                <TextBox.InputBindings>
-                    <KeyBinding Key="Enter" Command="{Binding AddTaskCommand}" />
-                </TextBox.InputBindings>
-            </TextBox>
+            <Button DockPanel.Dock="Right" Width="80" Margin="8,0,0,0" Click="AddButton_Click">Add</Button>
+            <TextBox x:Name="NewTaskTextBox" VerticalContentAlignment="Center" KeyDown="NewTaskTextBox_KeyDown" />
         </DockPanel>
 
-        <ListBox Grid.Row="2" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}">
-            <ListBox.InputBindings>
-                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditTaskCommand}" />
-            </ListBox.InputBindings>
+        <ListBox x:Name="TasksListBox" Grid.Row="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="4">
-                        <CheckBox IsChecked="{Binding IsDone}" VerticalAlignment="Center" />
-                        <TextBlock Text="{Binding Priority}" Width="58" Margin="8,0,0,0" />
-                        <TextBlock Text="{Binding Text}" VerticalAlignment="Center" />
-                    </StackPanel>
+                    <CheckBox Content="{Binding Text}"
+                              IsChecked="{Binding IsDone}"
+                              Checked="TaskCheckBox_Changed"
+                              Unchecked="TaskCheckBox_Changed"
+                              Padding="4" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Grid.Row="4" Width="100" HorizontalAlignment="Right" Command="{Binding MarkDoneCommand}">Done</Button>
+        <Button Grid.Row="4" Width="100" HorizontalAlignment="Right" Click="DoneButton_Click">Done</Button>
     </Grid>
 </Window>
